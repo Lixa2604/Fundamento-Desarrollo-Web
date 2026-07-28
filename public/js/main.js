@@ -12,20 +12,20 @@ formulario.addEventListener("submit", (event) => {
 })
 
 async function obtenercelulares() {
-    const url = "http://localhost:8000/celulares";
+    const url = "http://localhost:8000/celulares"
 
     try {
         // Escribir codigo
-        const respuesta = await fetch(url);
+        const respuesta = await fetch(url)
 
         if (!respuesta.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            throw new Error(`Response status: ${response.status}`)
         }
 
-        const resultado = await respuesta.json();
-        console.log(resultado);
+        const resultado = await respuesta.json()
+        console.log(resultado)
     }   catch (error) {
-        console.error(error.message);
+        console.error(error.message)
     }
 }
 
@@ -35,18 +35,21 @@ async function iniciarSesion(correo, password) {
     try {
         // Escribir codigo
         const respuesta = await fetch(url, {
-            method: "POST"
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({ correo: correo, password: password})
-        });
+        })
 
         if (!respuesta.ok) {
-            throw new Error(`Response status: ${response.status}`);
+            throw new Error(`Response status: ${response.status}`)
         }
 
-        const resultado = await respuesta.json();
-        console.log(resultado);
+        const resultado = await respuesta.json()
+        console.log(resultado)
     }   catch (error) {
-        console.error(error.message);
+        console.error(error.message)
     }
 }
 
